@@ -98,7 +98,7 @@ def on_button_click():
 # Create the main window
 root = tk.Tk()
 root.title("ARM GUI")
-root.geometry("800x800")
+root.geometry("800x500")
 x = tk.IntVar()
 y = tk.IntVar()
 z = tk.IntVar()
