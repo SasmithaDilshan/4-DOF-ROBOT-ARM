@@ -20,17 +20,14 @@ def update_InvKinVal(event=None):
     p2_x = x_-12.5*cos(radians(val5.get()))*cos(theta_1)
     p2_y = y_-12.5*cos(radians(val5.get()))*sin(theta_1)
     p2_z = z_-12.5*sin(radians(val5.get()))
-    print(p2_x,p2_y,p2_z)
     r = sqrt(p2_x**2+p2_y**2)-1.3
     s = p2_z-9.5
     q =(r**2+s**2-2*(12**2))/(2*12*12)
     if(-1<=q<=1):
         theta_3 = -acos(q)
         theta_2 = atan2(s,r)-atan2(12*sin(theta_3),(12+12*cos(theta_3)))
-        print("a",val5.get())
         theta_4=radians(val5.get())-theta_2-theta_3
         if (0<=int(degrees(theta_4)+90)<=180):
-            print(degrees(theta_1),degrees(theta_2),degrees(theta_3),degrees(theta_4))
             theta[0]=int(degrees(theta_1))
             theta[1]=int(degrees(theta_2))
             theta[2]=int(-degrees(theta_3))
@@ -72,10 +69,10 @@ def update_values(event=None):
     global val1,val2,val3,val4,val5
     global x,y,z
     theta[0]=slider1.get()
-    theta[1]=-slider2.get()
-    theta[2]=slider3.get()
-    theta[3]=-slider4.get()+90
-    theta[4] = slider9.get()
+    theta[1]=slider2.get()
+    theta[2]=-slider3.get()
+    theta[3]=slider4.get()+90
+    theta[4] = 45
     label1.config(text=f"theta 1: {val1.get()}")
     label2.config(text=f"theta 2: {val2.get()}")
     label3.config(text=f"theta 3: {val3.get()}")
@@ -84,17 +81,22 @@ def update_values(event=None):
     y.set(12*sin(radians(val1.get()))*(0.10833+cos(radians(val2.get()))+cos(radians(val2.get()+val3.get()))+1.04167*cos(radians(val2.get()+val3.get()+val4.get()))))
     z.set(9.5+12*sin(radians(val2.get()))+12*sin(radians(val2.get()+val3.get()))+12.5*sin(radians(val2.get()+val3.get()+val4.get())))
 
-    
+
 def on_button_click():
     global a
     global theta
-    for i in range(0,len(theta)-1):
+    for i in range(0,len(theta)):
         a+=str(theta[i])+","
     a= a[:-1]+"\n"
     print(a)
     # ser.write(a.encode())
     a=""
-    
+def grab():
+    theta[4]=45
+    on_button_click()
+def release():
+    theta[4]=135
+    on_button_click()
 # Create the main window
 root = tk.Tk()
 root.title("ARM GUI")
@@ -129,7 +131,7 @@ frame3 = tk.Frame(root)
 frame3.pack()
 label3 = tk.Label(frame3, text="theta 3: 0")
 label3.pack(side=tk.LEFT)
-slider3 = tk.Scale(frame3, from_=-180, to=180, length=200,orient=tk.HORIZONTAL, command=update_values,variable=val3)
+slider3 = tk.Scale(frame3, from_=-135, to=135, length=200,orient=tk.HORIZONTAL, command=update_values,variable=val3)
 slider3.pack(side=tk.LEFT)
 
 frame4 = tk.Frame(root)
@@ -143,12 +145,12 @@ frame5.pack()
 
 button = tk.Button(frame5, text="Move Arm", command=on_button_click,bg="white")
 button.pack(side=tk.LEFT, padx=5)
-button_1 = tk.Button(frame5, text="Grab", command=on_button_click,bg="yellow")
+button_1 = tk.Button(frame5, text="Grab", command=grab,bg="yellow")
 button_1.pack(side=tk.LEFT, padx=5)
-button_2 = tk.Button(frame5, text="release", command=on_button_click,bg="blue")
+button_2 = tk.Button(frame5, text="release", command=release,bg="blue")
 button_2.pack(side=tk.LEFT, padx=5)
 
-print(val1,val2)
+
 #inverse kinamatics calculations
 frame6 = tk.Frame(root)
 frame6.pack()

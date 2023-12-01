@@ -3,9 +3,10 @@ VarSpeedServo servo_1;
 VarSpeedServo servo_2;
 VarSpeedServo servo_3;
 VarSpeedServo servo_4;
-VarSpeedServo num_ser[4] = {servo_1,servo_2,servo_3,servo_4};
-int prev[4]= {90,90,90,90};
-int angl[4]={90,90,90,90};
+VarSpeedServo servo_5;
+VarSpeedServo num_ser[5] = {servo_1,servo_2,servo_3,servo_4,servo_5};
+int prev[5]= {90,90,90,90,90};
+int angl[5]={90,90,90,90,90};
 
 void rotate(int current_angle,int prev_angle,int i){
   if(current_angle>prev_angle){
@@ -29,7 +30,9 @@ void setup() {
   num_ser[1].attach(5);
   num_ser[2].attach(6);
   num_ser[3].attach(9);
-  for(int i=0;i<4;i++){
+  num_ser[4].attach(11);
+
+  for(int i=0;i<5;i++){
     rotate(angl[i],prev[i],i);
     prev[i]=angl[i];
   }
@@ -48,11 +51,11 @@ void loop() {
   
 
     // Loop through the tokens and convert them to integers
-  for (int i = 0; i < 4 && ptr != NULL; i++) {
+  for (int i = 0; i < 5 && ptr != NULL; i++) {
     angl[i] = atoi(ptr);
     ptr = strtok(NULL,",");
   }
-  for (int j=0;j<4;j++){
+  for (int j=0;j<5;j++){
     rotate(angl[j],prev[j],j);
     prev[j]=angl[j];
   }
