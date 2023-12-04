@@ -2,13 +2,14 @@
 <h1 align="center">Hi 👋, I'm Sasmitha Dilshan</h1>
 <h3 align="center">I'm an electronics enthusiast with a strong passion for robotics, UAVs (drones), and cutting-edge technology. What sets me apart is my ability to quickly adapt and learn, making me a versatile contributor to projects in these fields.</h3>
 
-- 🔭 I’m currently working on **ROBOT ARM PROJECT**
+- 🔭 I worked on [ROBOT ARM PROJECT](https://youtu.be/rzcBnud9lm8)
 
 - 📫 How to reach me **dilshanekanayaka669@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
 <a href="https://linkedin.com/in/sasmitha dilshan ekanayaka" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="sasmitha dilshan ekanayaka" height="30" width="40" /></a>
+<a href="https://kaggle.com/sasdil" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg" alt="sasdil" height="30" width="40" /></a>
 <a href="https://fb.com/sasmitha dilshan" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="sasmitha dilshan" height="30" width="40" /></a>
 </p>
 
